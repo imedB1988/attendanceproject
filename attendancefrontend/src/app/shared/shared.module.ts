@@ -7,6 +7,7 @@ import { NgZorroAntdModule } from '../ng-zorro-module';
 
 
 
+
 @NgModule({
   declarations: [],
   imports: [
@@ -16,7 +17,8 @@ import { NgZorroAntdModule } from '../ng-zorro-module';
     HttpClientModule,
     RouterLink,
     RouterOutlet,
-    NgZorroAntdModule
+    NgZorroAntdModule,
+
   ],
    exports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { NgZorroAntdModule } from '../ng-zorro-module';
     HttpClientModule,
     RouterLink,
     RouterOutlet,
-    NgZorroAntdModule
+    NgZorroAntdModule,
+
   ]
 })
 export class SharedModule { }

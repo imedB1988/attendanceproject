@@ -3,6 +3,8 @@ import { SharedModule } from '../../shared/shared.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../basic-services/auth.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { UserStorageService } from '../basic-services/user-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +18,7 @@ export class LoginComponent {
   loginForm!: FormGroup;
 
 
-  constructor(private fb:FormBuilder, private authService:AuthService, private  message:NzMessageService){}
+  constructor(private fb:FormBuilder, private authService:AuthService, private  message:NzMessageService, private router:Router){}
 
   ngOnInit()
   {
@@ -28,7 +30,19 @@ export class LoginComponent {
   }
 
   submitForm(){
-  this.authService.loginUser(this.loginForm.value).subscribe(res=>{console.log(res)}, error=>{this.message.error('bad credentials', {nzDuration:5000})});
+  this.authService.loginUser(this.loginForm.value).subscribe(res=>
+    {
+      UserStorageService.saveUser(res);
+
+
+      if(UserStorageService.isAdminLoggedIn()){
+          this.router.navigateByUrl('/admin/dashboard');
+      }
+
+
+
+      console.log(res);
+    }, error=>{this.message.error('bad credentials', {nzDuration:5000})});
   }
 
 }
