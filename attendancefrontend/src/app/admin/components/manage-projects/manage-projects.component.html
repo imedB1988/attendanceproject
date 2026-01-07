@@ -28,6 +28,28 @@
               </form>
           </nz-card>
         </div>
-        <div nz-col nzFlex="3" style="margin-left: 20px;"></div>
+        <div nz-col nzFlex="3" style="margin-left: 20px;">
+             <nz-card nzType="inner" style="margin-top: 16px;" nzTitle="Get all projects">
+                <div nz-card-grid style="width:100%" *ngFor="let project of projects">
+                    <div nz-col nzSpan="30">
+                          ID : <strong>{{project.id}}</strong>
+                    </div>
+
+                    <div nz-col nzSpan="30">
+                          Name : <strong>{{project.name}}</strong>
+                    </div>
+
+                    <div nz-col nzSpan="30">
+                          Duration : <strong>{{project.duration}}</strong>
+                    </div>
+
+                    <div nz-col nzSpan="30">
+                          startDate : <strong>{{project.startDate}}</strong>
+                    </div>
+                </div>
+
+             </nz-card>
+
+        </div>
     </div>
 </div>

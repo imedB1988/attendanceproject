@@ -15,4 +15,8 @@ private String name;
 
 private UserRole userRole;
 
+private Long projectID;
+
+private String projectName;
+
 }

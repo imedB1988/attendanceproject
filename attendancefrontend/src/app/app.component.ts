@@ -27,4 +27,11 @@ export class AppComponent {
   this.isManagerLoggedIn=UserStorageService.isManagerLoggedIn();
 })
   }
+
+
+  logout()
+  {
+      UserStorageService.signOut();
+      this.router.navigateByUrl("/");
+  }
 }

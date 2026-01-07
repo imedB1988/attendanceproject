@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
 @Entity
@@ -20,7 +21,11 @@ private String email;
 private String password;
 private String name;
 
+
 private UserRole userRole;
+
+@ManyToOne
+private Project project;
 
 public UserDTO getUserDTO()
 {
@@ -30,6 +35,16 @@ public UserDTO getUserDTO()
     userdto.setPassword(password);
     userdto.setEmail(email);
     userdto.setUserRole(userRole);
+    
+    if(project !=null)
+    {
+    userdto.setProjectID(project.getId());
+    userdto.setProjectName(project.getName());
+    }
+    
+    
+    
+    
 
     return userdto;
 }
