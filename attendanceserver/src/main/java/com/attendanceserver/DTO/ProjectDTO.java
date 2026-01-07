@@ -1,8 +1,10 @@
 package com.attendanceserver.DTO;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+
 
 import lombok.Data;
+
 
 
 @Data
@@ -12,7 +14,7 @@ public class ProjectDTO {
 
     private String name;
     private String duration;
-
-    private Date startDate;
+    
+    private LocalDateTime startDate;
 
 }
