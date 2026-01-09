@@ -3,6 +3,7 @@ package com.attendanceserver.services;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.attendanceserver.DTO.UserDTO;
 import com.attendanceserver.entities.Project;
@@ -13,6 +14,7 @@ import com.attendanceserver.repository.UserRepository;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 
+@Service
 public class AdminService {
 
     @Autowired
